@@ -1,0 +1,22 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Ticket;
+use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class TicketSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $customer = User::factory()->customer()->create();
+        Ticket::factory()->count(10)->create([
+            'customer_id' => $customer->id,
+        ]);
+    }
+}

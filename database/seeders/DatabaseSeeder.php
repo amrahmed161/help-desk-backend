@@ -30,5 +30,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'customer@example.com',
             'role' => UserRole::CUSTOMER,
         ]);
+        $this->call([
+            TicketSeeder::class,
+        ]);
     }
 }
