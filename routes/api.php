@@ -2,6 +2,7 @@
 
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\TicketController;
 use App\Http\Resources\Api\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,6 @@ Route::post('/logout', function (Request $request) {
         message: 'Logout successful'
         );
     });
+        Route::post('/tickets', [TicketController::class, 'store'])->middleware('role:customer');
+
 });
